@@ -15,9 +15,9 @@ Projeto de desenvolvimento  de uma API para gerenciamento de tarefas, com banco 
 
 Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
 
-`PORT` - Porta que será ouvida pelo fastify para criar o servidor
+`PORT` - Porta que será ouvida pelo fastify para criar o servidor (Ex.: 3333)
 
-`BASE_URL` - Endereço local do banco de dados
+`BASE_URL` - Endereço local + nome do baco de dados (Ex.: 'db/mydb.sqlite')
 
 
 ## Instalação
