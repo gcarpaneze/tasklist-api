@@ -1,9 +1,7 @@
 import { FastifyInstance } from 'fastify'
 import { randomUUID } from 'node:crypto'
 import { z } from 'zod'
-
 import { knex } from '../database'
-import { parse } from 'csv-parse/.'
 
 export async function taskRoutes(app: FastifyInstance) {
   app.get('/', async () => {
@@ -76,20 +74,5 @@ export async function taskRoutes(app: FastifyInstance) {
     await knex('tasks').where('id', id).delete()
 
     return reply.code(200).send()
-  })
-
-  app.post('/csv', async (request, reply) => {
-    const { input } = request.body
-
-    const records = parse(input, {
-      delimiter: ',',
-      skip_empty_lines: true,
-    })
-
-    const teste = records.map((record) => {
-      return { title: record[0], description: record[1] }
-    })
-
-    console.log(teste)
   })
 }
